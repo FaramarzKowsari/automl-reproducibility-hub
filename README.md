@@ -18,6 +18,26 @@
 
 <p align="center"><img src="public/images/social-preview.svg" width="100%" alt="AutoML Reproducibility Hub social preview" /></p>
 
+## Official infographic guidebook
+
+<p align="center">
+  <a href="https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/" title="Read the official AutoML Reproducibility Hub guidebook">
+    <img src="public/guidebook/inside-automl-reproducibility-hub-cover.jpg" width="520" alt="Inside AutoML Reproducibility Hub — official infographic guidebook cover" />
+  </a>
+</p>
+
+<p align="center">
+  <strong>Inside AutoML Reproducibility Hub</strong><br />
+  <em>A Visual Guide to Reproducible Browser-Based Machine Learning</em>
+</p>
+
+This ten-page A4 infographic handbook is the official visual companion to the repository. It explains the project from purpose to deployment: the reproducibility problem in machine learning, the TypeScript/Pyodide/DuckDB-WASM architecture, Static and Full execution modes, the experiment lifecycle, dataset versions and SHA-256 fingerprints, manifests, metrics, model comparison, privacy boundaries, research value, and publication readiness.
+
+- [Read the dedicated guidebook page](https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/)
+- [Open or download the PDF](https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub.pdf)
+- [View the PDF inside the repository](public/guidebook/inside-automl-reproducibility-hub.pdf)
+- [Read the guidebook documentation](docs/GUIDEBOOK.md)
+
 AutoML Reproducibility Hub is a browser-first research and educational laboratory for creating, inspecting, exporting, and rerunning machine-learning experiments as explicit reproducibility contracts.
 
 A result is not treated as a detached metric. Every run binds together:
@@ -80,13 +100,16 @@ automl-reproducibility-hub/
 ├── public/
 │   ├── datasets/             # versioned CSV fixtures and catalog
 │   ├── fixtures/             # labeled Static-mode reference runs
+│   ├── guidebook/            # official PDF, cover, and landing page
 │   └── images/               # repository/social artwork
 ├── src/
 │   ├── components/           # experiment, metrics, manifest, history, author UI
 │   ├── data/                 # model catalog and pinned runtime versions
 │   ├── lib/                  # hashing, DuckDB, storage, manifests, downloads
 │   └── workers/              # isolated Pyodide/scikit-learn execution
-├── docs/                     # architecture and scientific limitations
+├── docs/
+│   ├── GUIDEBOOK.md          # guidebook contents, paths, and citation guidance
+│   └── ...                   # architecture and scientific limitations
 └── .github/workflows/        # CI and GitHub Pages deployment
 ```
 

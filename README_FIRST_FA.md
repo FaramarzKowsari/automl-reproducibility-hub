@@ -1,36 +1,87 @@
-# راهنمای قرار دادن پروژه در GitHub Desktop
+# راهنمای نصب Guidebook در مخزن AutoML Reproducibility Hub
 
-نام پیشنهادی مخزن:
+این بسته برای مخزن زیر آماده شده است:
 
 ```text
-automl-reproducibility-hub
+https://github.com/FaramarzKowsari/automl-reproducibility-hub
 ```
+
+## فایل‌های افزوده‌شده
+
+```text
+public/guidebook/index.html
+public/guidebook/inside-automl-reproducibility-hub.pdf
+public/guidebook/inside-automl-reproducibility-hub-cover.jpg
+docs/GUIDEBOOK.md
+```
+
+## فایل‌های اصلاح‌شده
+
+```text
+README.md
+public/sitemap.xml
+public/llms.txt
+```
+
+## نصب با GitHub Desktop
 
 1. فایل ZIP را Extract کنید.
-2. GitHub Desktop را باز کنید.
-3. از `File → Add local repository` پوشه استخراج‌شده را انتخاب کنید. اگر هنوز Git repository نیست، گزینه Create a repository را بزنید.
-4. Repository name باید `automl-reproducibility-hub` باشد.
-5. Summary:
+2. پوشه `repo-update` را باز کنید.
+3. تمام محتویات داخل `repo-update` را کپی کنید.
+4. در GitHub Desktop مخزن `automl-reproducibility-hub` را انتخاب کنید.
+5. از منو بزنید:
 
 ```text
-Initial release: browser-first AutoML reproducibility laboratory
+Repository → Show in Explorer
 ```
 
-6. `Commit to main` و سپس `Publish repository` را بزنید.
-7. حتماً گزینه `Keep this code private` را خاموش کنید تا مخزن Public باشد.
-8. در GitHub وارد `Settings → Pages` شوید و Source را روی `GitHub Actions` قرار دهید.
-9. Push اولیه باید دو Workflow را اجرا کند: `CI` و `Deploy GitHub Pages`.
-10. پس از سبزشدن Deploy، آدرس برنامه:
+6. فایل‌ها را داخل ریشه مخزن کپی کنید.
+7. هنگام سؤال ویندوز، گزینه زیر را بزنید:
 
 ```text
-https://faramarzkowsari.github.io/automl-reproducibility-hub/
+Replace the files in the destination
 ```
 
-## نکته اجرای محلی
+## Commit
 
-```bash
-npm install
-npm run dev
+Summary:
+
+```text
+Add official infographic guidebook to the repository
 ```
 
-در اجرای Full برای نخستین بار، مرورگر بسته‌های Pyodide و scikit-learn را دانلود می‌کند. Static Mode بدون این دانلودها باز می‌شود.
+Description:
+
+```text
+Add the ten-page Inside AutoML Reproducibility Hub PDF, cover image, dedicated guidebook landing page, repository documentation, README integration, sitemap entries, and machine-readable guidebook links.
+```
+
+سپس:
+
+```text
+Commit to main
+Push origin
+```
+
+## کنترل پس از Push
+
+منتظر بمانید Workflowهای زیر سبز شوند:
+
+```text
+CI
+Deploy GitHub Pages
+```
+
+بعد این آدرس‌ها را باز کنید:
+
+```text
+https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/
+```
+
+```text
+https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub.pdf
+```
+
+```text
+https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub-cover.jpg
+```

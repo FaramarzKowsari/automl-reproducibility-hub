@@ -5,6 +5,8 @@ Browser-first research and educational software by Faramarz Kowsari for reproduc
 Canonical links:
 - Live application: https://faramarzkowsari.github.io/automl-reproducibility-hub/
 - Repository: https://github.com/FaramarzKowsari/automl-reproducibility-hub
+- Official guidebook: https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/
+- Guidebook PDF: https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub.pdf
 - ORCID: https://orcid.org/0000-0003-1692-0453
 
 Core reproducibility fields:
@@ -18,3 +20,9 @@ Core reproducibility fields:
 Modes:
 - S: Static reference mode with precomputed, integrity-labeled fixtures
 - F: Full browser execution with Pyodide, scikit-learn, pandas, NumPy, and DuckDB-WASM
+
+Official guidebook:
+- Title: Inside AutoML Reproducibility Hub
+- Subtitle: A Visual Guide to Reproducible Browser-Based Machine Learning
+- Format: 10-page A4 infographic PDF
+- Author: Faramarz Kowsari
