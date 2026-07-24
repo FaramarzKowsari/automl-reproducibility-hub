@@ -2,53 +2,392 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#07111f" />
-    <meta name="description" content="AutoML Reproducibility Hub — reproduce browser-based machine-learning experiments with deterministic seeds, versioned datasets, explicit parameters, metrics, Pyodide, and DuckDB-WASM." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>AutoML Reproducibility Hub — Browser-Based Reproducible Machine Learning</title>
+
+    <meta
+      name="description"
+      content="A browser-first AutoML laboratory for reproducible machine-learning experiments with deterministic seeds, versioned datasets, explicit parameters, metrics, Pyodide, DuckDB-WASM, and exportable experiment manifests."
+    />
+    <meta
+      name="keywords"
+      content="AutoML, reproducible machine learning, machine learning experiments, deterministic seed, dataset versioning, SHA-256 fingerprint, experiment manifest, model metrics, Pyodide, DuckDB-WASM, TypeScript, WebAssembly, scikit-learn, browser machine learning, research software"
+    />
     <meta name="author" content="Faramarz Kowsari" />
-    <meta name="keywords" content="AutoML, reproducible machine learning, Pyodide, DuckDB WASM, TypeScript, experiment tracking, dataset versioning, deterministic seed, model metrics" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://faramarzkowsari.github.io/automl-reproducibility-hub/" />
-    <meta property="og:title" content="AutoML Reproducibility Hub" />
-    <meta property="og:description" content="A browser-first laboratory for reproducible machine-learning experiments." />
-    <meta property="og:image" content="https://faramarzkowsari.github.io/automl-reproducibility-hub/images/social-preview.svg" />
-    <meta property="og:url" content="https://faramarzkowsari.github.io/automl-reproducibility-hub/" />
+    <meta name="creator" content="Faramarz Kowsari" />
+    <meta name="publisher" content="Faramarz Kowsari" />
+    <meta name="application-name" content="AutoML Reproducibility Hub" />
+    <meta name="generator" content="Vite, React, TypeScript, Pyodide, DuckDB-WASM" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#07111f" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="bingbot" content="index, follow" />
+
+    <link
+      rel="canonical"
+      href="https://faramarzkowsari.github.io/automl-reproducibility-hub/"
+    />
+    <link
+      rel="author"
+      href="https://orcid.org/0000-0003-1692-0453"
+    />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      href="%BASE_URL%sitemap.xml"
+    />
+    <link
+      rel="alternate"
+      type="text/plain"
+      href="%BASE_URL%llms.txt"
+      title="Machine-readable project summary"
+    />
+    <link
+      rel="alternate"
+      type="application/pdf"
+      href="%BASE_URL%guidebook/inside-automl-reproducibility-hub.pdf"
+      title="Inside AutoML Reproducibility Hub — Official Infographic Guidebook"
+    />
+
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="%BASE_URL%site.webmanifest" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AutoML Reproducibility Hub" />
+    <meta
+      property="og:title"
+      content="AutoML Reproducibility Hub — Reproduce the Experiment, Not Just the Score"
+    />
+    <meta
+      property="og:description"
+      content="Run and document reproducible browser-based machine-learning experiments with seeded execution, dataset versions, parameters, metrics, fingerprints, Pyodide, and DuckDB-WASM."
+    />
+    <meta
+      property="og:url"
+      content="https://faramarzkowsari.github.io/automl-reproducibility-hub/"
+    />
+    <meta
+      property="og:image"
+      content="https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub-cover.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub-cover.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="904" />
+    <meta property="og:image:height" content="1280" />
+    <meta
+      property="og:image:alt"
+      content="Inside AutoML Reproducibility Hub — official infographic guidebook cover"
+    />
+
+    <!-- Twitter / LinkedIn-compatible preview metadata -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AutoML Reproducibility Hub" />
-    <meta name="twitter:description" content="Seeded, versioned, inspectable ML experiments in the browser." />
-    <meta name="twitter:image" content="https://faramarzkowsari.github.io/automl-reproducibility-hub/images/social-preview.svg" />
+    <meta
+      name="twitter:title"
+      content="AutoML Reproducibility Hub"
+    />
+    <meta
+      name="twitter:description"
+      content="A browser-first research laboratory for seeded, versioned, inspectable, and exportable machine-learning experiments."
+    />
+    <meta
+      name="twitter:image"
+      content="https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub-cover.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Inside AutoML Reproducibility Hub guidebook cover"
+    />
+
+    <!-- Citation metadata: DOI is intentionally added only after Zenodo issues it. -->
+    <meta name="citation_title" content="AutoML Reproducibility Hub" />
+    <meta name="citation_author" content="Faramarz Kowsari" />
+    <meta name="citation_publication_date" content="2026/07/23" />
+    <meta
+      name="citation_public_url"
+      content="https://faramarzkowsari.github.io/automl-reproducibility-hub/"
+    />
+    <meta
+      name="citation_pdf_url"
+      content="https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub.pdf"
+    />
+    <meta name="citation_language" content="en" />
+    <meta
+      name="citation_technical_report_institution"
+      content="Independent Research Software Project"
+    />
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["SoftwareApplication", "SoftwareSourceCode"],
-      "name": "AutoML Reproducibility Hub",
-      "softwareVersion": "1.0.0",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Any modern web browser",
-      "programmingLanguage": ["TypeScript", "Python", "SQL", "WebAssembly"],
-      "isAccessibleForFree": true,
-      "license": "https://opensource.org/licenses/MIT",
-      "url": "https://faramarzkowsari.github.io/automl-reproducibility-hub/",
-      "codeRepository": "https://github.com/FaramarzKowsari/automl-reproducibility-hub",
-      "author": {
-        "@type": "Person",
-        "name": "Faramarz Kowsari",
-        "url": "https://faramarzkowsari.github.io/",
-        "sameAs": [
-          "https://orcid.org/0000-0003-1692-0453",
-          "https://github.com/FaramarzKowsari",
-          "https://www.linkedin.com/in/faramarzkowsari"
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#website",
+          "url": "https://faramarzkowsari.github.io/automl-reproducibility-hub/",
+          "name": "AutoML Reproducibility Hub",
+          "description": "A browser-first laboratory for reproducible machine-learning experiments.",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://faramarzkowsari.github.io/#person"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#software",
+          "name": "AutoML Reproducibility Hub",
+          "alternateName": "AutoML Hub",
+          "description": "Browser-first research and educational software for building, inspecting, comparing, exporting, and reproducing machine-learning experiments with deterministic seeds, dataset versions, SHA-256 fingerprints, explicit model parameters, metrics, and runtime information.",
+          "softwareVersion": "1.0.0",
+          "applicationCategory": "DeveloperApplication",
+          "applicationSubCategory": "Machine Learning Research Software",
+          "operatingSystem": "Any modern web browser with WebAssembly support",
+          "browserRequirements": "JavaScript, WebAssembly, Web Workers, and a modern Chromium, Firefox, or Safari browser",
+          "programmingLanguage": [
+            "TypeScript",
+            "Python",
+            "SQL",
+            "WebAssembly"
+          ],
+          "runtimePlatform": [
+            "React",
+            "Vite",
+            "Pyodide",
+            "DuckDB-WASM",
+            "scikit-learn"
+          ],
+          "isAccessibleForFree": true,
+          "license": "https://opensource.org/licenses/MIT",
+          "url": "https://faramarzkowsari.github.io/automl-reproducibility-hub/",
+          "downloadUrl": "https://github.com/FaramarzKowsari/automl-reproducibility-hub",
+          "installUrl": "https://github.com/FaramarzKowsari/automl-reproducibility-hub",
+          "codeRepository": "https://github.com/FaramarzKowsari/automl-reproducibility-hub",
+          "featureList": [
+            "Static Reference Mode",
+            "Full Browser Execution Mode",
+            "Deterministic random seed control",
+            "Versioned datasets",
+            "Dataset SHA-256 fingerprints",
+            "Explicit model parameters",
+            "Classification and regression metrics",
+            "Compact AutoML comparison",
+            "DuckDB-WASM dataset profiling",
+            "Pyodide and scikit-learn execution",
+            "Experiment manifests",
+            "Reproducibility scoring",
+            "JSON export",
+            "Python reproduction skeletons"
+          ],
+          "author": {
+            "@id": "https://faramarzkowsari.github.io/#person"
+          },
+          "isPartOf": {
+            "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#website"
+          },
+          "hasPart": [
+            {
+              "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/#book"
+            },
+            {
+              "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#conversion-dataset"
+            },
+            {
+              "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#revenue-dataset"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/FaramarzKowsari/automl-reproducibility-hub"
+          ]
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://github.com/FaramarzKowsari/automl-reproducibility-hub#source",
+          "name": "AutoML Reproducibility Hub Source Code",
+          "description": "Open-source TypeScript, React, Pyodide, and DuckDB-WASM implementation of the AutoML Reproducibility Hub.",
+          "codeRepository": "https://github.com/FaramarzKowsari/automl-reproducibility-hub",
+          "programmingLanguage": [
+            "TypeScript",
+            "Python",
+            "SQL"
+          ],
+          "runtimePlatform": [
+            "WebAssembly",
+            "Pyodide",
+            "DuckDB-WASM"
+          ],
+          "license": "https://opensource.org/licenses/MIT",
+          "version": "1.0.0",
+          "author": {
+            "@id": "https://faramarzkowsari.github.io/#person"
+          },
+          "targetProduct": {
+            "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#software"
+          }
+        },
+        {
+          "@type": "Book",
+          "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/#book",
+          "name": "Inside AutoML Reproducibility Hub",
+          "alternateName": "A Visual Guide to Reproducible Browser-Based Machine Learning",
+          "description": "The official ten-page A4 infographic guidebook for the AutoML Reproducibility Hub repository.",
+          "author": {
+            "@id": "https://faramarzkowsari.github.io/#person"
+          },
+          "inLanguage": "en",
+          "numberOfPages": 10,
+          "bookFormat": "https://schema.org/EBook",
+          "isAccessibleForFree": true,
+          "url": "https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/",
+          "encoding": {
+            "@type": "MediaObject",
+            "contentUrl": "https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub.pdf",
+            "encodingFormat": "application/pdf"
+          },
+          "about": [
+            "AutoML",
+            "Machine-learning reproducibility",
+            "Experiment manifests",
+            "Dataset versioning",
+            "Pyodide",
+            "DuckDB-WASM"
+          ],
+          "isPartOf": {
+            "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#software"
+          }
+        },
+        {
+          "@type": "Dataset",
+          "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#conversion-dataset",
+          "name": "Customer Conversion Dataset",
+          "version": "1.0.0",
+          "description": "A bundled synthetic binary-classification dataset used for reproducible browser-based reference and full-mode experiments.",
+          "isAccessibleForFree": true,
+          "license": "https://opensource.org/licenses/MIT",
+          "creator": {
+            "@id": "https://faramarzkowsari.github.io/#person"
+          },
+          "isPartOf": {
+            "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#software"
+          }
+        },
+        {
+          "@type": "Dataset",
+          "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#revenue-dataset",
+          "name": "Revenue Forecast Dataset",
+          "version": "1.0.0",
+          "description": "A bundled synthetic regression dataset used for reproducible browser-based reference and full-mode experiments.",
+          "isAccessibleForFree": true,
+          "license": "https://opensource.org/licenses/MIT",
+          "creator": {
+            "@id": "https://faramarzkowsari.github.io/#person"
+          },
+          "isPartOf": {
+            "@id": "https://faramarzkowsari.github.io/automl-reproducibility-hub/#software"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://faramarzkowsari.github.io/#person",
+          "name": "Faramarz Kowsari",
+          "url": "https://faramarzkowsari.github.io/",
+          "jobTitle": [
+            "Author",
+            "Software Engineer",
+            "AI Researcher"
+          ],
+          "description": "Faramarz Kowsari is an author, Software Engineer and AI researcher based in Istanbul. He develops browser-based educational tools and specialized instructional content.",
+          "sameAs": [
+            "https://orcid.org/0000-0003-1692-0453",
+            "https://scholar.google.com/citations?user=G7tP5WMAAAAJ&hl=en",
+            "https://github.com/FaramarzKowsari",
+            "https://www.linkedin.com/in/faramarzkowsari",
+            "https://play.google.com/store/search?q=Faramarz_Kowsari&c=books",
+            "https://zenodo.org/search?q=creators.orcid%3A%220000-0003-1692-0453%22"
+          ]
+        }
+      ]
     }
     </script>
-    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
-    <link rel="manifest" href="%BASE_URL%site.webmanifest" />
-    <title>AutoML Reproducibility Hub — Faramarz Kowsari</title>
+
+    <style>
+      .boot-fallback {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+        color: #dcecff;
+        background:
+          radial-gradient(circle at 20% 15%, rgba(26, 141, 255, 0.20), transparent 30rem),
+          radial-gradient(circle at 85% 20%, rgba(31, 209, 184, 0.16), transparent 28rem),
+          #07111f;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        text-align: center;
+      }
+
+      .boot-fallback div {
+        max-width: 760px;
+      }
+
+      .boot-fallback h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.2rem, 7vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+
+      .boot-fallback p {
+        margin: 0 auto;
+        max-width: 680px;
+        color: #9fb5ce;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+    </style>
   </head>
+
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main class="boot-fallback">
+        <div>
+          <h1>AutoML Reproducibility Hub</h1>
+          <p>
+            Loading a browser-first laboratory for seeded, versioned,
+            inspectable, and exportable machine-learning experiments.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <noscript>
+      AutoML Reproducibility Hub requires JavaScript and WebAssembly for its
+      interactive laboratory. The official guidebook remains available at
+      https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
