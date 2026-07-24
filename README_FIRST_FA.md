@@ -1,39 +1,24 @@
-# نصب فایل کامل index.html و اصلاح نهایی Build
+# راهنمای رفع خطای TypeScript Build
 
-این بسته چهار فایل را اصلاح می‌کند:
+تورفتگی YAML اکنون درست شده است و GitHub Actions وارد مرحله واقعی Build می‌شود.
 
-```text
-index.html
-src/App.tsx
-src/components/About.tsx
-tsconfig.node.json
-```
-
-## چرا چهار فایل؟
-
-فایل `index.html` به‌طور کامل برای SEO، Guidebook، Open Graph، Twitter Card،
-Google Scholar citation metadata، Schema.org و GitHub Pages بازسازی شده است.
-
-سه فایل دیگر خطاهای Build فعلی را رفع می‌کنند:
+خطای فعلی از `tsconfig.node.json` است:
 
 ```text
-Module "lucide-react" has no exported member 'Github'
-Module "lucide-react" has no exported member 'Linkedin'
-TS5096: allowImportingTsExtensions requires noEmit
+TS5096: Option 'allowImportingTsExtensions' can only be used when either
+'noEmit' or 'emitDeclarationOnly' is set.
 ```
 
-DOI در این مرحله عمداً وارد نشده است. بعد از سبزشدن CI، انتشار Release نسخه
-`v1.0.0` و صدور DOI رسمی Zenodo انجام می‌شود.
+در این بسته، گزینه زیر به `compilerOptions` اضافه شده است:
+
+```json
+"noEmit": true
+```
 
 ## نصب
 
 1. ZIP را Extract کنید.
-2. تمام محتویات پوشه استخراج‌شده را در ریشه مخزن محلی قرار دهید:
-
-```text
-Documents\GitHub\automl-reproducibility-hub
-```
-
+2. فایل `tsconfig.node.json` را در ریشه مخزن محلی کپی کنید.
 3. هنگام سؤال ویندوز، گزینه زیر را بزنید:
 
 ```text
@@ -45,13 +30,13 @@ Replace the files in the destination
 Summary:
 
 ```text
-Complete project metadata and fix final TypeScript build errors
+Fix TypeScript node configuration for production build
 ```
 
 Description:
 
 ```text
-Replace index.html with complete SEO, guidebook, citation, Open Graph, Twitter Card, and Schema.org metadata; replace unsupported lucide-react GitHub and LinkedIn icon exports; add the guidebook footer link; and enable noEmit for the TypeScript Node configuration.
+Enable noEmit in tsconfig.node.json so allowImportingTsExtensions is valid and the Vite configuration project can pass TypeScript build mode.
 ```
 
 سپس:
@@ -61,22 +46,4 @@ Commit to main
 Push origin
 ```
 
-اجراهای قرمز قبلی را Re-run نکنید. Push جدید Workflowهای تازه می‌سازد.
-
-## کنترل
-
-هر دو مورد باید سبز شوند:
-
-```text
-CI
-Deploy GitHub Pages
-```
-
-پس از سبزشدن:
-
-```text
-https://faramarzkowsari.github.io/automl-reproducibility-hub/
-https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/
-```
-
-سپس Release نسخه `v1.0.0` ساخته می‌شود تا Zenodo DOI رسمی صادر کند.
+Push جدید دو Workflow تازه ایجاد می‌کند. اجراهای قرمز قبلی را Re-run نکنید.
