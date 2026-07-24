@@ -1,45 +1,25 @@
-# راهنمای نصب Guidebook در مخزن AutoML Reproducibility Hub
+# راهنمای رفع خطای GitHub Actions
 
-این بسته برای مخزن زیر آماده شده است:
+خطا از تورفتگی اشتباه YAML در هر دو Workflow است.
+
+در فایل `ci.yml` فرمان نصب وابستگی‌ها به‌اشتباه زیر بخش `with` قرار گرفته بود.
+در فایل `deploy-pages.yml` نیز همان خطا وجود داشت.
+
+## نصب
+
+1. ZIP را Extract کنید.
+2. پوشه `.github` داخل بسته را در ریشه مخزن محلی کپی کنید.
+3. هنگام سؤال ویندوز، بزنید:
 
 ```text
-https://github.com/FaramarzKowsari/automl-reproducibility-hub
-```
-
-## فایل‌های افزوده‌شده
-
-```text
-public/guidebook/index.html
-public/guidebook/inside-automl-reproducibility-hub.pdf
-public/guidebook/inside-automl-reproducibility-hub-cover.jpg
-docs/GUIDEBOOK.md
+Replace the files in the destination
 ```
 
 ## فایل‌های اصلاح‌شده
 
 ```text
-README.md
-public/sitemap.xml
-public/llms.txt
-```
-
-## نصب با GitHub Desktop
-
-1. فایل ZIP را Extract کنید.
-2. پوشه `repo-update` را باز کنید.
-3. تمام محتویات داخل `repo-update` را کپی کنید.
-4. در GitHub Desktop مخزن `automl-reproducibility-hub` را انتخاب کنید.
-5. از منو بزنید:
-
-```text
-Repository → Show in Explorer
-```
-
-6. فایل‌ها را داخل ریشه مخزن کپی کنید.
-7. هنگام سؤال ویندوز، گزینه زیر را بزنید:
-
-```text
-Replace the files in the destination
+.github/workflows/ci.yml
+.github/workflows/deploy-pages.yml
 ```
 
 ## Commit
@@ -47,13 +27,13 @@ Replace the files in the destination
 Summary:
 
 ```text
-Add official infographic guidebook to the repository
+Fix GitHub Actions workflow YAML syntax
 ```
 
 Description:
 
 ```text
-Add the ten-page Inside AutoML Reproducibility Hub PDF, cover image, dedicated guidebook landing page, repository documentation, README integration, sitemap entries, and machine-readable guidebook links.
+Correct invalid indentation in the CI and GitHub Pages workflows so dependency installation, tests, production build, artifact upload, and deployment can run successfully.
 ```
 
 سپس:
@@ -63,25 +43,11 @@ Commit to main
 Push origin
 ```
 
-## کنترل پس از Push
-
-منتظر بمانید Workflowهای زیر سبز شوند:
+پس از Push، دو اجرای جدید ساخته می‌شوند:
 
 ```text
 CI
 Deploy GitHub Pages
 ```
 
-بعد این آدرس‌ها را باز کنید:
-
-```text
-https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/
-```
-
-```text
-https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub.pdf
-```
-
-```text
-https://faramarzkowsari.github.io/automl-reproducibility-hub/guidebook/inside-automl-reproducibility-hub-cover.jpg
-```
+اجراهای قرمز قدیمی را Re-run نکنید؛ Push جدید Workflowهای تازه ایجاد می‌کند.
