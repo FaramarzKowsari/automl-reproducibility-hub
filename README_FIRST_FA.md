@@ -1,25 +1,28 @@
-# راهنمای رفع خطای GitHub Actions
+# راهنمای رفع خطای TypeScript Build
 
-خطا از تورفتگی اشتباه YAML در هر دو Workflow است.
+تورفتگی YAML اکنون درست شده است و GitHub Actions وارد مرحله واقعی Build می‌شود.
 
-در فایل `ci.yml` فرمان نصب وابستگی‌ها به‌اشتباه زیر بخش `with` قرار گرفته بود.
-در فایل `deploy-pages.yml` نیز همان خطا وجود داشت.
+خطای فعلی از `tsconfig.node.json` است:
+
+```text
+TS5096: Option 'allowImportingTsExtensions' can only be used when either
+'noEmit' or 'emitDeclarationOnly' is set.
+```
+
+در این بسته، گزینه زیر به `compilerOptions` اضافه شده است:
+
+```json
+"noEmit": true
+```
 
 ## نصب
 
 1. ZIP را Extract کنید.
-2. پوشه `.github` داخل بسته را در ریشه مخزن محلی کپی کنید.
-3. هنگام سؤال ویندوز، بزنید:
+2. فایل `tsconfig.node.json` را در ریشه مخزن محلی کپی کنید.
+3. هنگام سؤال ویندوز، گزینه زیر را بزنید:
 
 ```text
 Replace the files in the destination
-```
-
-## فایل‌های اصلاح‌شده
-
-```text
-.github/workflows/ci.yml
-.github/workflows/deploy-pages.yml
 ```
 
 ## Commit
@@ -27,13 +30,13 @@ Replace the files in the destination
 Summary:
 
 ```text
-Fix GitHub Actions workflow YAML syntax
+Fix TypeScript node configuration for production build
 ```
 
 Description:
 
 ```text
-Correct invalid indentation in the CI and GitHub Pages workflows so dependency installation, tests, production build, artifact upload, and deployment can run successfully.
+Enable noEmit in tsconfig.node.json so allowImportingTsExtensions is valid and the Vite configuration project can pass TypeScript build mode.
 ```
 
 سپس:
@@ -43,11 +46,4 @@ Commit to main
 Push origin
 ```
 
-پس از Push، دو اجرای جدید ساخته می‌شوند:
-
-```text
-CI
-Deploy GitHub Pages
-```
-
-اجراهای قرمز قدیمی را Re-run نکنید؛ Push جدید Workflowهای تازه ایجاد می‌کند.
+Push جدید دو Workflow تازه ایجاد می‌کند. اجراهای قرمز قبلی را Re-run نکنید.
