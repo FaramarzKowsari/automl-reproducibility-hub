@@ -1,0 +1,26 @@
+[
+  {
+    "id": "customer-conversion-v1",
+    "name": "Customer Conversion",
+    "version": "1.0.0",
+    "task": "classification",
+    "target": "converted",
+    "file": "datasets/customer-conversion-v1.csv",
+    "rows": 480,
+    "columns": 8,
+    "sha256": "66eec45695e9ea4bb1a0f7e82d68fa78dcad28a68ea182073a03b1bb2870acff",
+    "description": "Synthetic customer-product interaction data with numerical and categorical predictors."
+  },
+  {
+    "id": "revenue-forecast-v1",
+    "name": "Revenue Forecast",
+    "version": "1.0.0",
+    "task": "regression",
+    "target": "revenue",
+    "file": "datasets/revenue-forecast-v1.csv",
+    "rows": 460,
+    "columns": 8,
+    "sha256": "fedb0d6494e619041a2821b2f8462479c3db031656a2c8f1f0acd6670291680a",
+    "description": "Synthetic marketing and traffic data for deterministic regression experiments."
+  }
+]

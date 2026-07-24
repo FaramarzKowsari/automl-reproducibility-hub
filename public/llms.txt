@@ -1,0 +1,20 @@
+# AutoML Reproducibility Hub
+
+Browser-first research and educational software by Faramarz Kowsari for reproducible machine-learning experiments.
+
+Canonical links:
+- Live application: https://faramarzkowsari.github.io/automl-reproducibility-hub/
+- Repository: https://github.com/FaramarzKowsari/automl-reproducibility-hub
+- ORCID: https://orcid.org/0000-0003-1692-0453
+
+Core reproducibility fields:
+- deterministic random seed
+- versioned dataset and SHA-256 fingerprint
+- explicit model and preprocessing parameters
+- task-appropriate metrics
+- runtime and package versions
+- exportable experiment manifest and Python reproduction script
+
+Modes:
+- S: Static reference mode with precomputed, integrity-labeled fixtures
+- F: Full browser execution with Pyodide, scikit-learn, pandas, NumPy, and DuckDB-WASM

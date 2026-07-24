@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use AutoML Reproducibility Hub in teaching or research, please cite this software."
+title: "AutoML Reproducibility Hub"
+type: software
+authors:
+  - family-names: Kowsari
+    given-names: Faramarz
+    orcid: "https://orcid.org/0000-0003-1692-0453"
+repository-code: "https://github.com/FaramarzKowsari/automl-reproducibility-hub"
+url: "https://FaramarzKowsari.github.io/automl-reproducibility-hub/"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-23
+keywords:
+  - AutoML
+  - reproducible machine learning
+  - Pyodide
+  - DuckDB-WASM
+  - TypeScript
+  - experiment tracking

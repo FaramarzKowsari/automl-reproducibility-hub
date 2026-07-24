@@ -1,0 +1,123 @@
+[
+  {
+    "datasetId": "customer-conversion-v1",
+    "task": "classification",
+    "modelKey": "logistic_regression",
+    "seed": 42,
+    "testSize": 0.25,
+    "parameters": {
+      "C": 1.0,
+      "maxIter": 600
+    },
+    "metrics": {
+      "accuracy": 0.658333,
+      "precision": 0.627451,
+      "recall": 0.592593,
+      "f1": 0.609524,
+      "roc_auc": 0.72615
+    },
+    "confusionMatrix": [
+      [
+        47,
+        19
+      ],
+      [
+        22,
+        32
+      ]
+    ],
+    "runtime": {
+      "mode": "static-reference",
+      "python": "3.11",
+      "scikitLearn": "1.8.0",
+      "pandas": "2.2.3",
+      "numpy": "2.3.5"
+    },
+    "note": "Precomputed reference run. Parameters are fixed and no model is executed in Static mode."
+  },
+  {
+    "datasetId": "customer-conversion-v1",
+    "task": "classification",
+    "modelKey": "random_forest_classifier",
+    "seed": 42,
+    "testSize": 0.25,
+    "parameters": {
+      "nEstimators": 180,
+      "maxDepth": 8,
+      "minSamplesLeaf": 2
+    },
+    "metrics": {
+      "accuracy": 0.691667,
+      "precision": 0.680851,
+      "recall": 0.592593,
+      "f1": 0.633663,
+      "roc_auc": 0.720819
+    },
+    "confusionMatrix": [
+      [
+        51,
+        15
+      ],
+      [
+        22,
+        32
+      ]
+    ],
+    "runtime": {
+      "mode": "static-reference",
+      "python": "3.11",
+      "scikitLearn": "1.8.0",
+      "pandas": "2.2.3",
+      "numpy": "2.3.5"
+    },
+    "note": "Precomputed reference run. Parameters are fixed and no model is executed in Static mode."
+  },
+  {
+    "datasetId": "revenue-forecast-v1",
+    "task": "regression",
+    "modelKey": "linear_regression",
+    "seed": 42,
+    "testSize": 0.25,
+    "parameters": {},
+    "metrics": {
+      "mae": 17227.467019,
+      "rmse": 21056.49033,
+      "r2": 0.671335
+    },
+    "confusionMatrix": null,
+    "runtime": {
+      "mode": "static-reference",
+      "python": "3.11",
+      "scikitLearn": "1.8.0",
+      "pandas": "2.2.3",
+      "numpy": "2.3.5"
+    },
+    "note": "Precomputed reference run. Parameters are fixed and no model is executed in Static mode."
+  },
+  {
+    "datasetId": "revenue-forecast-v1",
+    "task": "regression",
+    "modelKey": "random_forest_regressor",
+    "seed": 42,
+    "testSize": 0.25,
+    "parameters": {
+      "nEstimators": 180,
+      "maxDepth": 10,
+      "minSamplesLeaf": 2
+    },
+    "metrics": {
+      "mae": 18170.825912,
+      "rmse": 21681.358794,
+      "r2": 0.651539
+    },
+    "confusionMatrix": null,
+    "runtime": {
+      "mode": "static-reference",
+      "python": "3.11",
+      "scikitLearn": "1.8.0",
+      "pandas": "2.2.3",
+      "numpy": "2.3.5"
+    },
+    "note": "Precomputed reference run. Parameters are fixed and no model is executed in Static mode."
+  }
+]
